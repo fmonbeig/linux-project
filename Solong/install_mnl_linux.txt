@@ -1,0 +1,33 @@
+A faire avant si pas déjà réalisé :
+
+Pour creer sa machine virtuelle 
+- S'assurer qu'on copie tout bien dans le s-goinfre grace a la commande 
+curl https://cdn.42.fr/xubuntu-42.ova -o xubuntu-42.ova
+dans /sgoinfre/goinfre/Perso/$TON_USER_FILE (que tu dois créer)
+
+- Ensuite importer le fichier .ova via virtualbox pour creer la machine virtuelle
+Pour creer un dossier partage
+1. dans virtual box aller dans settings -> Shared Folder -> add un dossier -> Mettre le chemin du dossier -> lui donner un nom -> cliquer sur auto-mount -> mount point: /mnt/Documents -> cocher Make Permanent puis faire ok
+
+2. Dans la VM, il faut donner les droits pour voir le fichier a "user42"  -> faire dans le terminal la commande sudo addgroup user42 vboxsf
+
+3. Reboot la machine
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+-https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#compilation-on-linux
+
+Aller sur le tuto ci dessus dans la partie Getting Started
+
+Telecharger la minilibx Linux du Github dans la partie " compilation Linux"
+La mettre dans un dossier nommé "mlx_linux"
+Suivre le tutoriel en bas du git hub.
+
+Faire un main.c hors du dossier minilibx avec a l intérieur un des exemples donnés par le tuto.
+
+
+Compiler son main.c avec la commande ci dessous ( attention aux variables unused qu il y a dans les exemples, ça pose un souci de compilation sur Linux avec les Flags).
+
+gcc -Wall -Wextra -Werror main.c -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
