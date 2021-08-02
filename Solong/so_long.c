@@ -6,15 +6,11 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 12:01:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/02 15:47:44 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/02 18:41:15 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
 #include "so_long.h"
-
-
-
 
 int	key_hook(int keycode, void *param)
 {
@@ -23,6 +19,24 @@ int	key_hook(int keycode, void *param)
 	return(1);
 }
 
+int	main(int argc, char **argv)
+{
+	t_game	*g;
+	t_map *map;
+
+	if (argc == 2)
+	{
+		//checkname_map --> fonction check_extension pour savoir si on a bien a un .ber // et si on a bien quelque chose dans map !map
+		map = map_init();
+		check_map(argv[1], map);
+		g = game_init(map);
+		display_map(argv[1], g);
+		mlx_key_hook(g->win, key_hook, (void *)0);
+		mlx_loop(g->mlx);
+	}
+	game_end(g, map);
+	return (0);
+}
 
 /*
 Map
@@ -34,23 +48,3 @@ Map
 
 5- Definir les keys et leur actions : ESC // Deplacement //
 */
-
-
-int	main(int argc, char **argv)
-{
-	t_game	*g;
-	t_game *map;
-
-	if (argc == 2)
-	{
-		//checkname_map --> fonction check_extension pour savoir si on a bien a un .ber // et si on a bien quelque chose dans map !map
-		map = map_init();
-		check_map(argv[1], map);
-		g = game_init(map);
-		display_map(argv[1], g);
-	
-	mlx_loop(g->mlx);
-	}
-	game_end(g, map);
-	return (0);
-}

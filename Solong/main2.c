@@ -6,13 +6,12 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 12:01:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/02 12:32:38 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:41:57 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include "so_long.h"
-
 
 int	key_hook(int keycode, void *param)
 {
@@ -24,18 +23,9 @@ int	key_hook(int keycode, void *param)
 	return(1);
 }
 
-
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
-    //int x;
-    //int i;
-    //int j;
-    //j = 0;
-    //i = 0;
-	t_game	*g; // check avec une structure simple sans pointeur
-	//char path_player = "./images/player.xpm";
+	t_game *g;
 
 	g = malloc(sizeof(t_game));
 	g->player = malloc(sizeof(t_img));
@@ -79,28 +69,7 @@ int	main(void)
 	return (0);
 }
 
-
 /*
-	t_img	img;
-	int x;
-	int y;
-	
-	x = 5;
-	y = 5;
-
-	img.img = mlx_new_image(mlx, 1920, 1080); // creation d une image (void*)
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian); // creation de l adress et setup des parametres
-	
-
-	
-	//ici on va creer son image grace a my_mlx_pixel_put
-	while(x < 500)
-	my_mlx_pixel_put(&img, x++, y, 0x00FF0000);
-	while(y < 500)
-	my_mlx_pixel_put(&img, x, y++, 0x00FF0000);
-	x = 5;
-	y = 5;
-	while(y < 500)
-	my_mlx_pixel_put(&img, x, y++, 0x00FF0000);
-	*/
+.c.o:
+			${CC} ${CFLAGS} -Imlx -Ibass -c $< -o ${<:.c=.o}
+            */
