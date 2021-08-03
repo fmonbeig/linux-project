@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 14:58:28 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/02 18:39:12 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/03 18:46:08 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_game {
 	t_img	*exit;
 	int		map_height;
 	int		map_width;
+	char	**map;
 }				t_game;
 
 
@@ -62,6 +63,7 @@ t_game *game_init(t_map *map);
 void img_init(t_game *g);
 t_map *map_init();
 void game_end(t_game *g, t_map *map);
+void map_mem(t_game *g, t_map *map);
 
 //check map
 
@@ -81,6 +83,7 @@ void	display_map(char *map, t_game *game);
 //error message
 
 void error_map();
+void error_malloc();
 
 // GNL
 char	*ft_strchr(const char *s, int c);

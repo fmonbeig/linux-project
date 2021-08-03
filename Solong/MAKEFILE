@@ -2,7 +2,7 @@ NAME		= so_long
 
 CC			= gcc
 
-CFLAG		= -Wall -Wextra -Werror
+CFLAG		= -Wall -Wextra -Werror -g -fsanitize=address
 
 MLX_FLAG	= -Lmlx_linux -lmlx_linux -Imlx_linux -lXext -lX11 -lm -lz
 
