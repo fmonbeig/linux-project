@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 14:35:07 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/03 19:24:50 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/04 17:57:22 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void display_line(char *line, t_game *g)
     while(line[++j])
     {
         if (line[j] == '1')
-        mlx_put_image_to_window(g->mlx, g->win, g->wall->img, 60*w, 60*h);
+            mlx_put_image_to_window(g->mlx, g->win, g->wall->img, 60*w, 60*h);
         else if (line[j] == '0')
-        mlx_put_image_to_window(g->mlx, g->win, g->floor->img, 60*w, 60*h);
+            mlx_put_image_to_window(g->mlx, g->win, g->floor->img, 60*w, 60*h);
         else if (line[j] == 'P')
-        mlx_put_image_to_window(g->mlx, g->win, g->player->img, 60*w, 60*h);
+            mlx_put_image_to_window(g->mlx, g->win, g->player->img, 60*w, 60*h);
         else if (line[j] == 'C')
-        mlx_put_image_to_window(g->mlx, g->win, g->collec->img, 60*w, 60*h);
+            mlx_put_image_to_window(g->mlx, g->win, g->collec->img, 60*w, 60*h);
         else if (line[j] == 'E')
-        mlx_put_image_to_window(g->mlx, g->win, g->exit->img, 60*w, 60*h);
+            mlx_put_image_to_window(g->mlx, g->win, g->exit->img, 60*w, 60*h);
         w++;
         g->map[k][j] = line[j];
     }

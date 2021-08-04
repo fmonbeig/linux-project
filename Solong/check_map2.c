@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 16:31:09 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/02 16:32:08 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/04 14:59:39 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,36 @@ void    check_last_first_line(char *line)
     }
 }
 
-void check_element(char c, t_map *map)
+void check_element(char c, int i, t_map *map)
 { 
     if (c == 'E')
-    map->exit = 1;
+    map->exit++;
     if (c == 'C')
-    map->collec = 1;
+    map->collec++;
     if (c == 'P')
-    map->player = 1;
+    {
+        map->player++;
+        map->player_start_height = map->height;
+        map->player_start_width = i;
+    }
+    
+}
+
+void check_name_map(char *map)
+{
+    int i;
+
+    i = 0;
+    while(map[i])
+    i++;
+    if (map[--i] != 'r')
+    error_name();
+    if (map[--i] != 'e')
+    error_name();
+    if (map[--i] != 'b')
+    error_name();
+    if (map[--i] != '.')
+    error_name();
+    if (ft_strlen(map) <= 4)
+    error_name();
 }

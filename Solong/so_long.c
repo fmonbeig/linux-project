@@ -6,18 +6,12 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 12:01:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/03 18:37:42 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/04 15:52:05 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	key_hook(int keycode, void *param)
-{
-	if (keycode == 65307)
-		exit(1);
-	return(1);
-}
 
 int	main(int argc, char **argv)
 {
@@ -26,15 +20,14 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		//checkname_map --> fonction check_extension pour savoir si on a bien a un .ber // et si on a bien quelque chose dans map !map
 		map = map_init();
 		check_map(argv[1], map);
 		g = game_init(map);
 		display_map(argv[1], g);
-		mlx_key_hook(g->win, key_hook, (void *)0);
+		event(g);
 		mlx_loop(g->mlx);
 	}
-	//game_end(g, map);
+	game_end(g);
 	return (0);
 }
 
@@ -45,11 +38,12 @@ Map
 3 - Creer l'image de la map en assemblant les sprites lors du parsing OK
 3.5 - Check de la map : rectangle OK // .ber ? // exit OK // map fermé OK
 3.7 - Realiser tous les checks d'erreur !
-4 - Afficher la map
+4 - Recuperer la map dans un tableau OK
+
 5- Definir les keys et leur actions : ESC // Deplacement //
 
-Rajouter dans le parsing les collectibles
+Rajouter dans le parsing les collectibles OK dans la struct map->collec
+Chopper la start position du character -> OK
 Faire le checkname_map
-Stocker map dans un tableau a deux dimensions
-Faire une 
+
 */

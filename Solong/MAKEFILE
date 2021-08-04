@@ -15,9 +15,12 @@ SRC =	so_long.c \
 		error_msg.c \
 		game_end.c \
 		game_init.c \
-		get_next_line_utils.c \
 		get_next_line.c \
+		event.c \
+		event_move.c \
+		event_move2.c \
 		./utils/utils1.c \
+		./utils/utils2.c \
 		
 SRC_OBJ		= $(SRC:.c=.o)
 

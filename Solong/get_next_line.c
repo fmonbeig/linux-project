@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 15:34:12 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/03 17:02:01 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:43:08 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,32 +108,3 @@ int	get_next_line(int fd, char **line)
 	}
 	return (result(ret, line, &save));
 }
-
-/*
-int get_next_line(int fd, char **line)
-{
-	int i;
-	int r;
-	char c;
-
-	i = 0;
-	c = 0;
-
-	if (!line)
-		return (-1);
-	*line = malloc(1234567);
-	**line = 0;
-	while( (r = read(fd,&c,1)) > 0)
-	{
-		if (c == '\n')
-			break;
-		(*line)[i] = c;
-		c = 0;
-		i++;
-	}
-	(*line)[i] = 0;
-	if (r == -1)
-		**line = 0;
-	return (r);
-}
-*/

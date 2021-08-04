@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_msg.c                                        :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/30 12:23:07 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/04 11:55:17 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/08/04 16:15:58 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/08/04 17:19:53 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void error_map()
+void	ft_putnbr_fd(int n, int fd)
 {
-  ft_putstr_fd("Error :\n Bad Map Format \n", 2);
-  exit(1);
+	long int	num;
+
+	num = n;
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num *= -1;
+	}
+	if (num > 9)
+	{
+		ft_putnbr_fd(num / 10, fd);
+		num = num % 10;
+	}
+	ft_putchar_fd(num + '0', fd);
 }
 
-void error_malloc()
+void	ft_putchar_fd(char c, int fd)
 {
-  ft_putstr_fd("Error :\n Malloc Failed \n", 2);
-  exit(1);
-}
-
-void error_name()
-{
-  ft_putstr_fd("Error :\n Bad Map Extension \n", 2);
-  exit(1);
-}
-
-void error_taille()
-{
-  ft_putstr_fd("Error :\n Width must be at 2560 and Height at 1440 MAX\n", 2);
-  exit(1);
+	write(fd, &c, 1);
 }

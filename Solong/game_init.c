@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 12:41:52 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/03 18:55:16 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:32:00 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,19 @@ void map_mem(t_game *g, t_map *map)
 	}
 }
 
+void data_recuperation(t_game *g, t_map *map)
+{
+	g->move = 0;
+	g->player_height = map->player_start_height;
+	g->player_width = map->player_start_width;
+	g->map_adr = map;
+	g->collec_nb = map->collec;
+	g->map_height = map->height;
+	g->map_height = map ->width;
+	printf("start height %d\n",g->player_height );
+	printf("start width %d\n",g->player_width );
+}
+
 t_game *game_init(t_map *map)
 {
 	t_game *g;
@@ -63,7 +76,7 @@ t_game *game_init(t_map *map)
 	if (!g)
 		error_malloc;
 	g->mlx = mlx_init();
-	g->win = mlx_new_window(g->mlx, map->width*60, map->height*60, "LOL");
+	g->win = mlx_new_window(g->mlx, map->width*60, map->height*60, "LOL"); // mettre des free si g->win ne fonctionne pas
 	g->player = malloc(sizeof(t_img));
 	if (!g->player)
 		error_malloc;
@@ -81,5 +94,6 @@ t_game *game_init(t_map *map)
 		error_malloc;
 	img_init(g);
 	map_mem(g, map);
+	data_recuperation(g, map);
 	return(g);
 }
