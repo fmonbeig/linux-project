@@ -6,11 +6,11 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 16:31:09 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/04 14:59:39 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/06 15:24:42 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int valide_char(char c)
 {
@@ -19,13 +19,12 @@ int valide_char(char c)
     return (0);    
 }
 
-int check_wall(char *line)
+void check_wall(char *line)
 {
-    if (line[0] != 1)
-        return (1);
-    if (line[ft_strlen(line) - 1] != 1)
-        return (1);
-    return (0);
+    if (line[0] != '1')
+        error_wall();
+    if (line[ft_strlen(line) - 1] != '1')
+         error_wall();
 }
 
 void    check_last_first_line(char *line)

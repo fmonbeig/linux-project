@@ -6,11 +6,11 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 15:34:12 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/08/04 11:43:08 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/08/06 16:51:45 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static char	*save_line(char *str)
 {
